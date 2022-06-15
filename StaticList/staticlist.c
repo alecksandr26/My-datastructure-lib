@@ -7,7 +7,7 @@
 /* staticlist_remove_index: To remove data by index from the list return "0" if sucessfull else ortherwise */
 int staticlist_remove_index(StaticList *list, unsigned index)
 {
-    if (list->size >= index)
+    if (list->size <= index)
         return -1;
     
     for ( ; index < list->size - 1; ++index)

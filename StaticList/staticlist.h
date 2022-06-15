@@ -16,7 +16,9 @@ typedef struct {
 /* staticlist_remove: To remove data from the list return "0" if sucessfull else ortherwise */
 #define staticlist_remove(list, element_or_index) _Generic((element_or_index), \
                                                            unsigned : staticlist_remove_index(list, element_or_index), \
-                                                           void *: staticlist_remove_data(list, element_or_index))
+                                                           void *: staticlist_remove_data(list, element_or_index), \
+                                                           int : staticlist_remove_index(list, element_or_index), \
+                                                           long : staticlist_remove_index(list, element_or_index))
 
 /* staticlist_insert: Insert an element by index return "0" if successful else return otherwise */
 int staticlist_insert(StaticList *list, unsigned index, void *data);   
