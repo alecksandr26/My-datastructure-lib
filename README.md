@@ -1,2 +1,2 @@
 # Data-Structure-lib
-Just my datastructure library in c
+Just my datastructure library for c
