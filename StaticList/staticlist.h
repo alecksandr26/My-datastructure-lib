@@ -32,4 +32,7 @@ int staticlist_push(StaticList *list, void *data);
 /* staticlist_init: Initialize the list */
 void staticlist_init(StaticList *list);
 
+/* staticlist_size: Returns the size of the list */
+#define staticlist_size(list) ((list)->size)
+
 #endif
