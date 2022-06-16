@@ -6,12 +6,11 @@
 #define INITIAL_MAX_SPACE 2
 
 /* Data structure */
-typedef struct {
+typedef struct _StaticList{
     unsigned size;
     unsigned max_size;
     void **list;
 } StaticList;
-
 
 /* staticlist_remove: To remove data from the list return "0" if sucessfull else ortherwise */
 #define staticlist_remove(list, element_or_index) _Generic((element_or_index), \
@@ -31,6 +30,9 @@ int staticlist_push(StaticList *list, void *data);
 
 /* staticlist_init: Initialize the list */
 void staticlist_init(StaticList *list);
+
+/* staticlist_destroy: To destroy completly a list */
+void staticlist_destroy(StaticList *list);
 
 /* staticlist_size: Returns the size of the list */
 #define staticlist_size(list) ((list)->size)

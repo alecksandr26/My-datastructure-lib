@@ -30,6 +30,7 @@ int main()
     
     assert(*((int *) staticlist_get(&list, staticlist_size(&list) - 1)) == 5);
     assert(*((int *) staticlist_get(&list, 0)) == 3);
+    staticlist_destroy(&list);
                                                         
     
     return 0;

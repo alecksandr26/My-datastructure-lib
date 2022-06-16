@@ -1,7 +1,10 @@
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 #include "staticlist.h"
+
+
 
 
 /* staticlist_remove_index: To remove data by index from the list return "0" if sucessfull else ortherwise */
@@ -34,7 +37,7 @@ int staticlist_remove_data(StaticList *list, void *data)
 }
 
 
-/* realloc_list: Reacllo all the memory return "0" if sucessfull else otherwise */
+/* realloc_list: Reacllo all the memory return "0" if sucessfull else otherwise it is a private method */
 static int realloc_list(StaticList *list)
 {
     list->max_size *= 2;
@@ -95,6 +98,14 @@ void staticlist_init(StaticList *list)
         fprintf(stderr, "Error: Not enough memory\n");
         exit(EXIT_FAILURE);
     }
+}
+
+
+/* staticlist_destroy: To destroy completly the list */
+void staticlist_destroy(StaticList *list)
+{
+    free(list->list);
+    memset(list, 0, sizeof(StaticList));
 }
 
 
