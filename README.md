@@ -1,4 +1,4 @@
 # Data-Structure-lib
 Just my datastructure library for c
 ## Todo
-1. Do some google tests
+1. Implement a buildir for the library
