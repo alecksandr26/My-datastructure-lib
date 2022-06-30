@@ -1,2 +1,2 @@
 # Static List
-Is a simple static list that supports any type of data, there is not beta for this moment.
+Is a simple static list that uses void pointers to support any type of data.
