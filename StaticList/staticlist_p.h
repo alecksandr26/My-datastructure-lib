@@ -44,7 +44,5 @@ StaticList *create_staticlist(int (*destroy_element)(void *element));
 /* destroy_staticlist: To destroy completly a list returns 0 if okay else otherwise */
 int destroy_staticlist(StaticList *list);
 
-/* staticlist_size: Returns the size of the list */
-#define staticlist_size(list) ((list)->size)
 
 #endif

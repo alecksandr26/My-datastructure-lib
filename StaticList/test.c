@@ -22,13 +22,14 @@ int main()
     assert(staticlist_push(list, &num3) == 0);
     assert(staticlist_push(list, &num4) == 0);
     assert(staticlist_push(list, &num5) == 0);
-
+    
+    assert(list->size == 5);
 
     assert(staticlist_delete(list, (void *) &num2) == 0);
     
     assert(staticlist_delete(list, 0) == 0);
     
-    assert(*((int *) staticlist_get(list, staticlist_size(list) - 1)) == 5);
+    assert(*((int *) staticlist_get(list, list->size - 1)) == 5);
     assert(*((int *) staticlist_get(list, 0)) == 3);
 
     assert(destroy_staticlist(list) == 0);
