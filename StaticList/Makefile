@@ -4,7 +4,7 @@ BINS = test.out
 
 all: $(BINS)
 
-staticlist.o: staticlist.c staticlist.h
+staticlist.o: staticlist.c staticlist_p.h
 	$(C) -c $< -o $@
 
 test.out: test.c $(OBJS)

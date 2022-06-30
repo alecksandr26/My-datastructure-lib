@@ -2,10 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "staticlist.h"
-
-
-
+#include "staticlist_p.h"
 
 /* staticlist_remove_index: To remove data by index from the list return "0" if sucessfull else ortherwise */
 int staticlist_remove_index(StaticList *list, unsigned index)
@@ -89,28 +86,30 @@ int staticlist_push(StaticList *list, void *data)
     return 0;
 }
 
-/* staticlist_init: Initialize the list */
-void staticlist_init(StaticList *list)
+/* create_staticlist: Create a new instance of the list */
+StaticList *create_staticlist()
 {
+    StaticList *list;
+
+    if ((list = (StaticList *) malloc(sizeof(StaticList))) == NULL) {
+        fprintf(stderr, "Error: Not enough memory for a new instance of StaticList\n");
+        exit(EXIT_FAILURE);
+    }
+    
     list->size = 0;
     list->max_size = INITIAL_MAX_SPACE;
     if ((list->list =  malloc(sizeof(void *) * list->max_size)) == NULL) {
-        fprintf(stderr, "Error: Not enough memory\n");
+        fprintf(stderr, "Error: Not enough memory for a new instance of StaticList\n");
         exit(EXIT_FAILURE);
     }
+
+    return list;
 }
 
 
-/* staticlist_destroy: To destroy completly the list */
-void staticlist_destroy(StaticList *list)
+/* destroy_staticlist: To destroy completly a list */
+void destroy_staticlist(StaticList *list)
 {
     free(list->list);
-    memset(list, 0, sizeof(StaticList));
+    free(list);
 }
-
-
-
-
-
-
-
