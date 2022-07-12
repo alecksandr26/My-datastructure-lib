@@ -13,6 +13,24 @@ static int realloc_list(StaticList *list)
     return 0;
 }
 
+/* staticlist_removed_index: To removed a element from the list, return a address if sucessfull else otherwise */
+void *staticlist_removed_index(StaticList *list, unsigned index)
+{
+    void *data;
+
+    if (list == NULL || list->size <= index)
+        return NULL;
+
+    /* Get the element */
+    data = list->list[index];
+
+    /* Delete the object in the list */
+    for ( ; index < list->size - 1; ++index)
+        list->list[index] = list->list[inde + 1];
+
+    /* Return it */
+    return data;
+}
 
 /* staticlist_delete_index: To delete data by index from the list return "0" if sucessfull else ortherwise */
 int staticlist_delete_index(StaticList *list, unsigned index)
@@ -74,7 +92,6 @@ int staticlist_delete_data(StaticList *list, void *data)
     
     return 0;
 }
-
 
 /* staticlist_insert: Insert an element by index return "0" if successful else return otherwise */
 int staticlist_insert(StaticList *list, unsigned index, void *data)
@@ -158,6 +175,7 @@ StaticList *create_staticlist(int (*destroy_element)(void *element))
     list->size = 0;
     list->max_size = INITIAL_MAX_SPACE;
     list->destroy_element = destroy_element;
+    
     if ((list->list =  malloc(sizeof(void *) * list->max_size)) == NULL) {
         fprintf(stderr, "Error: Not enough memory for a new instance of StaticList\n");
         exit(EXIT_FAILURE);

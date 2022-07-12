@@ -11,6 +11,9 @@ typedef struct static_list_t {
     int (*destroy_element)(void *element);
 } StaticList;
 
+/* staticlist_removed_index: To removed a element from the list, return a address if sucessfull else otherwise */
+void *staticlist_removed_index(StaticList *list, unsigned index)
+
 /* staticlist_delete_index: To delete data by index from the list return "0" if sucessfull else ortherwise */
 int staticlist_delete_index(StaticList *list, unsigned index);
 
